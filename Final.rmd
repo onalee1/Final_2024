@@ -195,6 +195,23 @@ gayfish
 The null hypothesis is rejected in favor of the alternative hypothesis, meaning that the vaccine is ineffective in preventing the likelihood of getting covid in individuals who identify as gay.
 	The odds ratio above came out to be 4.3, meaning that those gays that got covid while taking the vaccine were more likely to contract covid than those who took the placebo and got covid. The odds of getting covid-19 while taking the vaccine is 11.3, meaning there is a big chance at contracting covid while taking the vaccine for the gays.
 	
+```{r}
+effect <- gayfish$p.value/(gayfish$p.value +1)
+effectivenessgay = gayfish$estimate/(gayfish$estimate +1)*100
+print(effectivenessgay)
+```
+
+```{r}
+low=(gayfish$conf.int[1]/(gayfish$conf.int[1] +1))*100
+hi=(gayfish$conf.int[2]/(gayfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+Shown above is the effectiveness for the covid-19 vaccine for the gays. If the effectiveness is exactly 65%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval as low as 68.99%-89.87% hi, I can conclude that the vaccine is ineffective in protecting the gays from getting covid-19.
+	The odds ratio essentially shows how effective the vaccine is. The odds ratio for the gays is 81, with an effectiveness confidence interval of 68.9-89.8%, meaning that the vaccine is not effective in protecting the gays from getting covid-19.
+	
 ## Druggies
 
 
