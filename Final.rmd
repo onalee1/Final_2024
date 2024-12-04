@@ -1,12 +1,15 @@
 ---
 title: "Covid91 vaccine study Final2024"
 author: "Onalee Garusinghe"
-output: 
+date: "11/26/24"
+output:
   html_document:
     number_sections: true
     toc: true
     toc_depth: 5
-date: "11/26/24" 
+ pdf_document:
+    toc: true
+    toc_depth: '5'
 ---
 
 ```{r include=FALSE,echo=FALSE}
@@ -78,9 +81,8 @@ malesfish <- fisher.test(table1)
 malesfish
 ```
 
-  A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 2.2-16, which is quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result. 
+A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 2.2-16, which is quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.
   The odds ratio above came out to be 2.81, meaning that the males that took the vaccine were less likely to contract covid than those who took the placebo.
-
 
 ```{r}
 effect <- malesfish$p.value/(malesfish$p.value +1)
@@ -100,6 +102,21 @@ The odds ratio essentially shows how effective the vaccine is. The odds ratio fo
 
 ## Females
 
+```{r}
+dd2 <- females %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
+
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+  This plot represents the population of females and their relationship to getting covid-19 by taking either the vaccine or the placebo. The plot shows that around 58% of females who got covid took the placebo. Whereas about 37% of females who got covid took the vaccine.  Therefore, more females who got covid took the placebo. This means that the vaccine seems to be effective for females in this dataset. Although, it seems to be more effective for males than females, since more females than males who contracted covid took the vaccine rather than the placebo.There were two plots that came out. The first plot shows two bars for the treatment, either the placebo or the vaccine. Along the x-axis was the amount of people there was, and along the y-axis shows the infected from covid, either placebo or vaccine. It shows the number of people infected from covid or from the placebo. The second plot also shows two bars for the treatments, either the placebo or the vaccine. It shows the percentage of people infected from covid or from the placebo.
+  
 ## LGBTQ
 
 
