@@ -58,8 +58,32 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 ```
    
    This plot represents the population of males and their relationship to getting covid-19 by taking either the vaccine or the placebo. The plot shows that around 68% of males who got covid took the placebo. Whereas about 25% of males who got covid took the vaccine. Therefore, more males who got covid took the placebo, whereas the males who got covid from taking the vaccine were not as likely to contract covid as much. This means that the vaccine seems to be effective for the males in this dataset.There were two plots that came out. The first plot shows two bars for the treatment, either the placebo or the vaccine. Along the x-axis was the amount of people there was, and along the y-axis shows the infected from covid, either placebo or vaccine. It shows the number of people infected from covid or from the placebo.
-## Females
+   
+## Numerical results
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=males)
+rowPerc(table1)
+colPerc(table1)
+```
+
+  The numerical results for the males shows the percentages of males who got covid while taking the vaccine and males who got covid while taking the placebo. It shows that around 73% of the males who got covid took the placebo. Whereas only 26% of males who got covid took the vaccine. This comes to show that the vaccine is effective towards males. 
+  
+### Inferential 
+
+
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+malesfish <- fisher.test(table1)
+malesfish
+```
+
+A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 2.2e-16, which is quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.
+The odds ratio above came out to be 2.81, meaning that the males that took the vaccine were less likely to contract covid than those who took the placebo.
+
+## Females
 
 ## LGBTQ
 
