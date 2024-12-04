@@ -253,4 +253,20 @@ Druguserfish
 The null hypothesis is rejected in favor of the alternative hypothesis. The vaccine is ineffective in preventing the likelihood of getting covid in individuals who identify as drug users.
 The odds ratio above came out to be 0.087, meaning that those drug users that took the vaccine were very likely to contract covid than those who took the placebo. The odds of getting covid-19 while taking the vaccine is 0.6:3.3, meaning there is a big chance at contracting covid while taking the vaccine for the drug users
 	
+```{r}
+effect <- Druguserfish$p.value/(Druguserfish$p.value +1)
+effectivenessDruguser = Druguserfish$estimate/(Druguserfish$estimate +1)*100
+print(effectivenessDruguser)
+```
+
+```{r}
+low=(Druguserfish$conf.int[1]/(Druguserfish$conf.int[1] +1))*100
+hi=(Druguserfish$conf.int[2]/(Druguserfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+  Shown above is the effectiveness for the covid-19 vaccine for the gays. If the effectiveness is even as 65%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval of low as 2.65%-17.86% as hi, I can conclude that the vaccine is ineffective in protecting the drug users from getting covid-19.The odds ratio essentially shows how effective the vaccine is. The odds ratio for the drug users is 8, with an effectiveness confidence interval of 2.65-17.86%, meaning that the vaccine is not effective in protecting the drug users from getting covid-19.
+  
 # Overall Results and Conclusions
