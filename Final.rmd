@@ -138,6 +138,22 @@ femalesfish
 
   A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 1e-08, which is also quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.	The odds ratio above came out to be 1.9, meaning that the females that got covid by taking the vaccine were less likely to contract covid than those who took the placebo. The odds of getting covid while taking the vaccine is 2:1.
   
+```{r}
+effect <- femalesfish$p.value/(femalesfish$p.value +1)
+effectivenessfemales = femalesfish$estimate/(femalesfish$estimate +1)*100
+print(effectivenessfemales)
+```
+
+```{r}
+low=(femalesfish$conf.int[1]/(femalesfish$conf.int[1] +1))*100
+hi=(femalesfish$conf.int[2]/(femalesfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+Shown above is the effectiveness for the covid-19 vaccine for females. If the effectiveness is above 60%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval of low as 60%-70% hi, I can conclude that the vaccine is effective in protecting females from getting covid-19.The odds ratio essentially shows how effective the vaccine is. The odds ratio for the females is 65 with an effectiveness confidence interval of 59.8 to 69.9%, meaning that the vaccine is effective in protecting females from getting covid-19.
+
 ## LGBTQ
 
 
