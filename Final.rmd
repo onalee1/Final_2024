@@ -214,5 +214,22 @@ Shown above is the effectiveness for the covid-19 vaccine for the gays. If the e
 	
 ## Druggies
 
+```{r}
+dd2 <- Druguser %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+
+This plot represents the population of drug users and their relationship to getting covid-19 by taking either the vaccine or the placebo. The plot shows that 5% of the drug users who got covid took the placebo. Whereas 83% of the drug users who got covid took the vaccine. Therefore, more gays who got covid took the vaccine, whereas the gays who got covid while taking the placebo did not contract covid as much. This means that the vaccine does not seem to be effective for the drug users in this dataset. 
+	There were two plots that came out. The first plot shows two bars for the treatment, either the placebo or the vaccine. Along the x-axis was the amount of people there was, and along the y-axis shows the infected from covid, either placebo or vaccine. It shows the number of people infected from covid or from the placebo. The second plot also shows two bars for the treatments, either the placebo or the vaccine. It shows the percentage of people infected from covid or from the placebo.
+
+
+	
 # Overall Results and Conclusions
