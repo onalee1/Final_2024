@@ -71,8 +71,6 @@ colPerc(table1)
   
 ### Inferential 
 
-
-
 ```{r}
 chisq.test(table1)
 chisqtestGC(table1)
@@ -80,8 +78,25 @@ malesfish <- fisher.test(table1)
 malesfish
 ```
 
-A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 2.2e-16, which is quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.
-The odds ratio above came out to be 2.81, meaning that the males that took the vaccine were less likely to contract covid than those who took the placebo.
+  A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 2.2-16, which is quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result. 
+  The odds ratio above came out to be 2.81, meaning that the males that took the vaccine were less likely to contract covid than those who took the placebo.
+
+
+```{r}
+effect <- malesfish$p.value/(malesfish$p.value +1)
+effectivenessguy = malesfish$estimate/(malesfish$estimate +1)*100
+print(effectivenessguy)
+```
+
+```{r}
+low=(malesfish$conf.int[1]/(malesfish$conf.int[1] +1))*100
+hi=(malesfish$conf.int[2]/(malesfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+The odds ratio essentially shows how effective the vaccine is. The odds ratio for the males is around 73.8, with an effectiveness confidence interval of low being  68.84-78.32% hi, meaning that the vaccine is effective in protecting males from getting covid-19.
 
 ## Females
 
