@@ -230,6 +230,27 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 This plot represents the population of drug users and their relationship to getting covid-19 by taking either the vaccine or the placebo. The plot shows that 5% of the drug users who got covid took the placebo. Whereas 83% of the drug users who got covid took the vaccine. Therefore, more gays who got covid took the vaccine, whereas the gays who got covid while taking the placebo did not contract covid as much. This means that the vaccine does not seem to be effective for the drug users in this dataset. 
 	There were two plots that came out. The first plot shows two bars for the treatment, either the placebo or the vaccine. Along the x-axis was the amount of people there was, and along the y-axis shows the infected from covid, either placebo or vaccine. It shows the number of people infected from covid or from the placebo. The second plot also shows two bars for the treatments, either the placebo or the vaccine. It shows the percentage of people infected from covid or from the placebo.
 
+### Numerical
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=Druguser)
+rowPerc(table1)
+colPerc(table1)
+```
+
+  The numerical results for the drug users shows the percentages of drug users who got covid while taking the vaccine and drug users who got covid while taking the placebo. It shows that 8.3% of the drug users who got covid took the placebo. Whereas 91.7% of the drug users who got covid took the vaccine. This comes to show that the vaccine is ineffective towards the drug users at preventing the contraction of covid-19.
+  
+### Inferential 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+Druguserfish <- fisher.test(table1)
+Druguserfish
+```
+
+  A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 3e-12, which is a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.
+The null hypothesis is rejected in favor of the alternative hypothesis. The vaccine is ineffective in preventing the likelihood of getting covid in individuals who identify as drug users.
+The odds ratio above came out to be 0.087, meaning that those drug users that took the vaccine were very likely to contract covid than those who took the placebo. The odds of getting covid-19 while taking the vaccine is 0.6:3.3, meaning there is a big chance at contracting covid while taking the vaccine for the drug users
 	
 # Overall Results and Conclusions
