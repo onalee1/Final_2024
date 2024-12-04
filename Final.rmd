@@ -44,7 +44,20 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 ## Males
 
+```{r}
+dd2 <- males %>% group_by(infected,treatment) %>% summarize(count=n()) %>% mutate(prcnt=count/sum(count))
 
+
+basicC <- ggplot(dd2,aes(x=infected,y=count,fill=treatment))
+basicC + geom_bar(stat="identity",position="dodge")
+
+#Now for percentage plot
+
+basicCC <- ggplot(dd2,aes(x=infected,y=prcnt*100,fill=treatment)) 
+basicCC + geom_bar(stat="identity", position = "dodge")
+```
+   
+   This plot represents the population of males and their relationship to getting covid-19 by taking either the vaccine or the placebo. The plot shows that around 68% of males who got covid took the placebo. Whereas about 25% of males who got covid took the vaccine. Therefore, more males who got covid took the placebo, whereas the males who got covid from taking the vaccine were not as likely to contract covid as much. This means that the vaccine seems to be effective for the males in this dataset.There were two plots that came out. The first plot shows two bars for the treatment, either the placebo or the vaccine. Along the x-axis was the amount of people there was, and along the y-axis shows the infected from covid, either placebo or vaccine. It shows the number of people infected from covid or from the placebo.
 ## Females
 
 
