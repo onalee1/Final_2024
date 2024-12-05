@@ -270,3 +270,4 @@ options(digits=2)
   Shown above is the effectiveness for the covid-19 vaccine for the gays. If the effectiveness is even as 65%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval of low as 2.65%-17.86% as hi, I can conclude that the vaccine is ineffective in protecting the drug users from getting covid-19.The odds ratio essentially shows how effective the vaccine is. The odds ratio for the drug users is 8, with an effectiveness confidence interval of 2.65-17.86%, meaning that the vaccine is not effective in protecting the drug users from getting covid-19.
   
 # Overall Results and Conclusions
+test
