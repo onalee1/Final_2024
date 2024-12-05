@@ -270,4 +270,9 @@ options(digits=2)
   Shown above is the effectiveness for the covid-19 vaccine for the gays. If the effectiveness is even as 65%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval of low as 2.65%-17.86% as hi, I can conclude that the vaccine is ineffective in protecting the drug users from getting covid-19.The odds ratio essentially shows how effective the vaccine is. The odds ratio for the drug users is 8, with an effectiveness confidence interval of 2.65-17.86%, meaning that the vaccine is not effective in protecting the drug users from getting covid-19.
   
 # Overall Results and Conclusions
-test
+
+  The covid-19 vaccine was not effective in protecting both the gays and the drug users from contracting covid-19. The effectiveness of the vaccine for both the gays and the drug users came out to be lower than 50%, meaning the vaccine was ineffective at protecting the gays and the drug users from contracting covid-19. Although, the covid-19 vaccine was effective in protecting the males and females against covid-19. The covid-19 effectiveness for the males was over 50%, being around 73%, which means that the vaccine is effective at protecting the males from contracting covid-19. The effectiveness for the females was also over 50%, being 65%, which means that the vaccine is effective at protecting the females from contracting covid-19. This vaccine effectively protected both both the females and males, with the males being protected the most.
+If you identify as a gay or are a drug user, then this vaccine is not recommended because it can cause the contraction of covid-19, and is ineffective towards preventing the spread of covid-19. Although, if you are a male or a female, the vaccine is shown to be effective towards preventing the contraction of covid-19. 
+The null hypothesis that there is no difference in taking the vaccine can be accepted to the categories that include the gays and the drug users. The alternative hypothesis, that the vaccine works and is effective can be accepted to the categories that include the males and the females.
+
+
